@@ -41,6 +41,30 @@ class rabbit_conn:
         queues=self.parse_queues(res.json(), 'name')
         return queues
 
+    def ListQueuesIn(self, vhost):
+        """
+
+        Returns:
+
+        """
+        queues_list_url=self.url+"/api/queues/" + str(vhost)
+        res=self.NewClient(queues_list_url)
+        queues=self.parse_queues(res.json(), 'name')
+        return queues
+
+    def GetQueue(self,  qname, vhost='%2F'):
+        """
+
+        Args:
+            qname:
+
+        Returns:
+
+        """
+        queue_url=self.url + "/api/queues/" + vhost + +"/" + qname
+        res=self.NewClient(queue_url)
+        return res.json()
+
     def parse_queues(self, res, key):
         """
 
