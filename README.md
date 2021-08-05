@@ -17,10 +17,16 @@ pip install git+https://github.com/kaskou/rabbitmq_python_client
     ```buildoutcfg
         client=rabbitmq_api_client.rabbit_conn(url, user, password)
     ```
-###Queue Operations
+### Queue Operations
 ```buildoutcfg
     # Get the List of Queues
     client.ListQueues()
+    
+    #Get the List of Queues in vhost
+    client.ListQueues(vhost)
+    
+    #Get the Specifc Queue info - [by default the vhost is /]
+    client.GetQueue(qname, vhost)
 ```
 
 Inspiration from this Go Github Repo `https://github.com/michaelklishin/rabbit-hole`
