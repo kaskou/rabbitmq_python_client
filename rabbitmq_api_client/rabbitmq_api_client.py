@@ -52,7 +52,7 @@ class rabbit_conn:
         queues=self.parse_queues(res.json(), 'name')
         return queues
 
-    def GetQueue(self,  qname, vhost='%2F'):
+    def GetQueue(self,  qname):
         """
 
         Args:
@@ -61,8 +61,7 @@ class rabbit_conn:
         Returns:
 
         """
-        queue_url=self.url + "/api/queues/" + str(vhost) + +"/" + qname
-        print(queue_url)
+        queue_url=self.url + "/api/queues/%2F/" + qname
         res=self.NewClient(queue_url)
         return res.json()
 
