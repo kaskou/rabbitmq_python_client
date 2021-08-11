@@ -62,6 +62,7 @@ class rabbit_conn:
 
         """
         queue_url=self.url + "/api/queues/" + str(vhost) + +"/" + qname
+        print(queue_url)
         res=self.NewClient(queue_url)
         return res.json()
 
